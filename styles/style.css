@@ -144,6 +144,7 @@ main {
     font-size: inherit;
     padding: 0 10px;
     font-variation-settings: 'wght' var(--title-font-weight);
+    border-block-end: 2px solid var(--main-color);
 }
 
 @media screen and (width <= 375px) {
@@ -174,7 +175,7 @@ main {
             0 -1px var(--background-color);
 
     @supports((text-stroke: 1px var(--background-color)) or (-webkit-text-stroke: 1px var(--background-color))) {
-        p {
+        .card__image-decor {
             -webkit-text-stroke: 1px var(--background-color);
             text-stroke: 1px var(--background-color);
             text-shadow: var(--background-color);
@@ -182,8 +183,23 @@ main {
     }
 }
 
+@media screen and (width <= 375px) {
+    .card__image-decor {
+        inset-inline-end: 13px;
+    }
+}
+
 .card__image {
     width: 100%;
+    height: 696px;
+    object-fit: cover;
+    border-block-end: 2px solid var(--main-color);
+}
+
+@media  screen and (width <= 375px) {
+    .card__image {
+        height: 375px;
+    }
 }
 
 .card__description-wrapper {
@@ -194,14 +210,16 @@ main {
 }
 
 .card__description-text {
+    margin: 0;
     font-size: 18px;
+    line-height: 20px;
 }
 
 .card__footer {
     display: flex;
     flex-direction: row;
     justify-content: end;
-    padding: 0 25px 20px 25px;
+    padding: 0 25px 25px 25px;
 }
 
 .card__icon-button {
@@ -211,6 +229,8 @@ main {
     border: 2px solid transparent;
     cursor: pointer;
     transition: border-color 0.3s ease;
+    padding: 0;
+    height: 38px;
 }
 
 
@@ -254,7 +274,7 @@ main {
     overflow: hidden;
 }
 
-.animated-button:focus-visible {
+button:not(.theme-menu__button, .card__icon-button):focus-visible {
     transition: box-shadow 0.3s ease;
     outline: none;
     box-shadow: 2px 2px 0 var(--main-color);
@@ -275,7 +295,6 @@ main {
 }
 
 .footer__save-button {
-    margin-block-start: 50px;
     background: var(--background-color);
     padding: 15px 19px;
     margin-block-end: 103px;
@@ -323,7 +342,7 @@ main {
     animation: scaleHeart 0.3s ease-in 0.1s 1 alternate;
 }
 
-.insertFloppy[open] {
+.insert-floppy[open] {
     display: flex;
     flex-direction: column;
     padding: 30px;
@@ -335,12 +354,12 @@ main {
     border: 2px solid var(--main-color);
 }
 
-.insertFloppy::backdrop {
+.insert-floppy::backdrop {
     background-color: black;
     opacity: 0.75;
 }
 
-.insertFloppy__container {
+.insert-floppy__container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -348,7 +367,7 @@ main {
     color: var(--main-color);
 }
 
-.insertFloppy__text {
+.insert-floppy__text {
     font-family: var(--accent-font), serif;
     font-weight: 400;
     font-size: 14px;
@@ -357,7 +376,7 @@ main {
     max-inline-size: 234px;
 }
 
-.insertFloppy__save-button {
+.insert-floppy__save-button {
     inline-size: 100%;
     text-transform: uppercase;
 }
@@ -366,30 +385,30 @@ main {
     flex-shrink: 0;
 }
 
-.homer {
+.filter-sepia {
     filter: sepia(20%);
 }
 
-.scare {
+.filter-contrast {
     filter: contrast(140%);
 }
 
-.cat {
+.filter-brightness-hue-rotate {
     filter: brightness(50%) hue-rotate(20deg);
 }
 
-.cat-care {
+.filter-blur {
     filter: blur(2px);
 }
 
-.strategy {
+.filter-invert {
     filter: invert(100%);
 }
 
-.pig {
+.filter-saturate {
     filter: saturate(200%);
 }
 
-.iam {
+.filter-grayscale {
     filter: grayscale(50%);
 }
