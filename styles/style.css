@@ -167,6 +167,7 @@ main {
     font-weight: 400;
     opacity: 50%;
     background-blend-mode: hard-light;
+    z-index: 1;
 
     text-shadow:
             -1px 0 var(--background-color),
@@ -229,7 +230,6 @@ main {
     border: 2px solid transparent;
     cursor: pointer;
     transition: border-color 0.3s ease;
-    padding: 0;
     height: 38px;
 }
 
@@ -298,11 +298,21 @@ button:not(.theme-menu__button, .card__icon-button):focus-visible {
     background: var(--background-color);
     padding: 15px 19px;
     margin-block-end: 103px;
+    block-size: min-content;
+}
+
+.button__icon-footer {
+    inline-size: 21px;
 }
 
 @media  screen and (width <= 375px) {
     .footer__save-button {
-        max-inline-size: 306px;
+        min-inline-size: 310px;
+        min-block-size: 85px;
+    }
+
+    .button__icon-footer {
+        inline-size: 28px;
     }
 }
 
